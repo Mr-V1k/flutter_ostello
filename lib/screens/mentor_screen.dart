@@ -7,6 +7,8 @@ class MentorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    AssetImage bg = const AssetImage('assets/images/app_bg.png');
+    //AssetImage man = const AssetImage('assets/images')
 
     return Scaffold(
       body: ListView(
@@ -17,13 +19,14 @@ class MentorScreen extends StatelessWidget {
               children: [
                 Container(
                   height: size.height * 0.35 - 20,
-                  decoration: const BoxDecoration(
-                    color: Colors.purple,
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(image: bg, fit: BoxFit.fill),
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(40),
                       bottomRight: Radius.circular(40),
                     ),
                   ),
+                  //child: bg,
                 ),
                 Positioned(
                   left: 0,
@@ -66,7 +69,7 @@ class MentorScreen extends StatelessWidget {
                         const Text(
                           "717 Followers",
                           style: TextStyle(
-                            color: Colors.purple,
+                            color: Color.fromRGBO(125, 35, 224, 1),
                             fontSize: 16,
                           ),
                         ),
@@ -80,8 +83,9 @@ class MentorScreen extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 50, vertical: 10),
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  color: Colors.purple),
+                                borderRadius: BorderRadius.circular(5),
+                                color: const Color.fromRGBO(125, 35, 224, 1),
+                              ),
                               child: Row(children: const [
                                 Icon(
                                   Icons.calendar_month_outlined,
@@ -93,9 +97,10 @@ class MentorScreen extends StatelessWidget {
                                 Text(
                                   "Availability",
                                   style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w400),
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               ]),
                             ),
@@ -107,7 +112,7 @@ class MentorScreen extends StatelessWidget {
                               ),
                               child: const Icon(
                                 Icons.contact_mail_outlined,
-                                color: Colors.purple,
+                                color: Color.fromRGBO(125, 35, 224, 1),
                               ),
                             ),
                           ],
@@ -116,12 +121,20 @@ class MentorScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Positioned(
+                Positioned(
                   top: 50,
                   right: 140,
-                  child: CircleAvatar(
-                    radius: 50,
-                    backgroundColor: Colors.red,
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      //color: Colors.red,
+                      image: const DecorationImage(
+                        image: AssetImage("assets/images/man.png"),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
                   ),
                 ),
               ],
@@ -156,48 +169,45 @@ class _NavState extends State<Nav> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          //padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
-          child: Row(
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = 0;
-                  });
-                },
-                child: const Text(
-                  "Experience",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
+        Row(
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            InkWell(
+              onTap: () {
+                setState(() {
+                  selectedIndex = 0;
+                });
+              },
+              child: const Text(
+                "Experience",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
                 ),
               ),
-              const SizedBox(
-                width: 80,
-              ),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = 1;
-                  });
-                },
-                child: const Text(
-                  "Reviews(82)",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                  ),
+            ),
+            const SizedBox(
+              width: 80,
+            ),
+            InkWell(
+              onTap: () {
+                setState(() {
+                  selectedIndex = 1;
+                });
+              },
+              child: const Text(
+                "Reviews(82)",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
                 ),
               ),
-              Expanded(
-                child: menu[selectedIndex],
-              )
-            ],
-          ),
+            ),
+            Expanded(
+              child: menu[selectedIndex],
+            )
+          ],
         ),
       ],
     );
@@ -213,7 +223,7 @@ class Experience extends StatelessWidget {
     return ListView(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 45),
         scrollDirection: Axis.vertical,
-        children: [ExpCard(), ExpCard()]);
+        children: const [ExpCard(), ExpCard()]);
   }
 }
 

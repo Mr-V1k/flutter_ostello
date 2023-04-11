@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'home.dart';
+import 'home.dart';
 import 'package:ostello/screens/mentor_screen.dart';
 
 class MainScreen extends StatelessWidget {
@@ -8,7 +8,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: MentorScreen(),
+      body: Home(),
       floatingActionButton: FloatingMenu(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BAppBar(),

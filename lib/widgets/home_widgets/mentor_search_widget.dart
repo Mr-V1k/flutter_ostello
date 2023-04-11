@@ -5,10 +5,16 @@ class SearchMentor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(15),
-      child: Container(
-          color: Colors.purple,
+    return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: const DecorationImage(
+            image: AssetImage("assets/images/search_mentor.png"),
+            fit: BoxFit.fill,
+          ),
+        ),
+        //color: Colors.red,
+        child: Padding(
           padding: EdgeInsets.symmetric(
             vertical: MediaQuery.of(context).size.width * 0.03,
             horizontal: MediaQuery.of(context).size.height * 0.015,
@@ -61,7 +67,7 @@ class SearchMentor extends StatelessWidget {
                 ),
               )
             ],
-          )),
-    );
+          ),
+        ));
   }
 }

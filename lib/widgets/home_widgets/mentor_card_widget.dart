@@ -9,37 +9,47 @@ class MentorCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.purple,
+        image: const DecorationImage(
+            image: AssetImage("assets/images/mentor_card_bg_image.png"),
+            fit: BoxFit.fill),
       ),
       width: 160,
       margin: const EdgeInsets.only(right: 15),
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      child: Stack(
+        //crossAxisAlignment: CrossAxisAlignment.start,
+        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                "Ester Howard",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: Colors.white),
-              ),
-              Text(
-                "UX Reserch,",
-                style: TextStyle(fontSize: 15, color: Colors.white),
-              ),
-              Text(
-                "Gojak",
-                style: TextStyle(fontSize: 15, color: Colors.white),
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  "Ester Howard",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      color: Colors.white),
+                ),
+                Text(
+                  "UX Reserch,",
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                ),
+                Text(
+                  "Gojak",
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                )
+              ],
+            ),
           ),
-          const CircleAvatar(
-            radius: 40,
-            backgroundColor: Colors.pink,
+          const Positioned(
+            top: 160,
+            left: 70,
+            child: CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage("assets/images/man.png"),
+            ),
           )
         ],
       ),
